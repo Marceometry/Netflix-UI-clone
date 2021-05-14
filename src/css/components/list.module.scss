@@ -1,0 +1,29 @@
+.container {
+    margin-bottom: 2rem;
+
+    h2 {
+        margin-left: 2rem;
+    }
+
+    .listarea {
+        padding-left: 2rem;
+        overflow-x: hidden;
+
+        &:hover {
+
+        }
+
+        .list {
+
+
+            .item {
+                width: 150px;
+                display: inline-block;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
