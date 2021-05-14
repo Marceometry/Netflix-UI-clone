@@ -9,19 +9,26 @@
         padding-left: 2rem;
         overflow-x: hidden;
 
-        &:hover {
+        // &:hover {
 
-        }
+        // }
 
         .list {
 
 
             .item {
                 width: 150px;
+                cursor: pointer;
                 display: inline-block;
 
                 img {
                     width: 100%;
+                    transform: scale(.9);
+                    transition: all .2s;
+
+                    &:hover {
+                        transform: scale(1);
+                    }
                 }
             }
         }

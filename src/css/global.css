@@ -1,6 +1,7 @@
 :root {
   --background: #111;
   --font-color: #fff;
+  --red: #e50914;
 }
 
 * {
@@ -22,11 +23,11 @@ a {
 }
 
 #nprogress {
-    position: relative;
-    z-index: 999;
+  position: relative;
+  z-index: 999999999;
 }
 
 #nprogress .bar {
-    background: red;
-    height: 3px;
+  background: var(--red);
+  height: 3px;
 }
