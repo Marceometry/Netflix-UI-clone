@@ -1,0 +1,43 @@
+@-webkit-keyframes load {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+}
+
+@keyframes load {
+    0% {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+}
+
+.loader {
+    display: block;
+    position: fixed;
+    z-index: 1031;
+    top: 50%;
+    right: 50%;
+}
+  
+.loader {
+    width: 64px;
+    height: 64px;
+    box-sizing: border-box;
+  
+    border: solid 2px transparent;
+    border-top-color: var(--red);
+    border-left-color: var(--red);
+    border-radius: 50%;
+  
+    -webkit-animation: load 400ms linear infinite;
+            animation: load 400ms linear infinite;
+}
