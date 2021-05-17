@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 import { GetServerSideProps } from 'next'
 import Tmdb from '../services/Tmdb'
 
@@ -6,12 +6,30 @@ import MainMovie from '../components/MainMovie'
 import List from '../components/List'
 
 import css from '../css/home.module.scss'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 export default function Home({ list, chosenMovieInfo }) {
-  // {console.log(list)}
+  const [blackHeader, setBlackHeader] = useState(false)
+
+  useEffect(() => {
+    const scrollListener = () => {
+      if (window.scrollY > 100) {
+        setBlackHeader(true)
+      } else {
+        setBlackHeader(false)
+      }
+    }
+    window.addEventListener('scroll', scrollListener)
+    return () => {
+      window.removeEventListener('scroll', scrollListener)
+    }
+  }, [])
   
   return (
-    <div className={css.container}>      
+    <div className={css.container}>
+      <Header bg={blackHeader} />
+
       <MainMovie item={chosenMovieInfo} />
 
       <section className={css.lists}>
@@ -21,6 +39,8 @@ export default function Home({ list, chosenMovieInfo }) {
           )
         })}
       </section>
+
+      <Footer />
     </div>
   )
 }

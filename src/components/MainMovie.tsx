@@ -28,7 +28,7 @@ export default function MainMovie({ item }) {
                     <p className={css.description}>{item.overview}</p>
 
                     <div className={css.buttons}>
-                        <button> <img src="/play.svg" /> Assistir</button>
+                        <button>&#9654; Assistir</button>
                         <button>+ Minha Lista</button>
                     </div>
 

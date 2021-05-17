@@ -9,7 +9,68 @@
         .horizontal {
             width: inherit;
             height: inherit;
+            padding: 4.5rem 0 8rem 2rem;
             background: linear-gradient(to right, #111 30%, transparent 70%);
+            
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            .name {
+                font-size: 3.75rem;
+            }
+
+            .info {
+                font-size: 1.125rem;
+                font-weight: bold;
+                margin: 1.25rem 0;
+
+                span:not(:last-child) {
+                    margin-right: 1rem;
+                }
+
+                .points {
+                    color: var(--green);
+                }
+            }
+
+            .description {
+                width: 40%;
+                font-size: 1.25rem;
+                color: var(--gray);
+                text-align: justify;
+            }
+
+            .buttons {
+                margin: 1.25rem 0;
+
+                button {
+                    font-size: 1.25rem;
+                    font-weight: bold;
+                    padding: .75rem 1.5rem;
+                    border-radius: 5px;
+                    transition: opacity, .2s;
+
+                    &:hover {
+                        opacity: .7;
+                    }
+
+                    &:first-child {
+                        margin-right: .75rem;
+                        background: var(--font-color);
+                        color: var(--background);
+                    }
+
+                    &:last-child {
+                        background: var(--background-2);
+                    }
+                }
+            }
+
+            .genres {
+                font-size: 1.125rem;
+                color: var(--gray);
+            }
         }
     }
 }

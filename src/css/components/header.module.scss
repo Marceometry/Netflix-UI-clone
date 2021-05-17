@@ -1,0 +1,30 @@
+.container {
+    height: 4.5rem;
+    padding: 0 2rem;
+    transition: background, .5s;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 100;
+
+    &.bg {
+        background: var(--background);
+    }
+
+    a {
+        height: 2rem;
+
+        img {
+            height: 100%;
+        }
+
+        &:last-child img {
+            border-radius: 3px;
+        }
+    }
+}
