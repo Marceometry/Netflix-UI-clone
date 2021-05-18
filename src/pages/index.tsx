@@ -54,10 +54,17 @@ export const getServerSideProps: GetServerSideProps = async () => {
   const list = await Tmdb.getHomeList()
 
   const originals = list.filter(i => i.slug === 'originals')
-  const random = Math.floor(Math.random() * originals[0].items.results.length - 1)
-  const chosenMovie = originals[0].items.results[random]
+  const random = Math.floor(Math.random() * list[1].items.results.length - 1)
+  const chosenMovie = list[1].items.results[random]
+  let chosenMovieInfo = null
 
-  const chosenMovieInfo = await Tmdb.getMovieInfo(chosenMovie.id, 'tv')
+  if (chosenMovie?.first_air_date) {
+    chosenMovieInfo = await Tmdb.getMovieInfo(chosenMovie.id, 'tv')
+  } else if (chosenMovie?.release_date) {
+    chosenMovieInfo = await Tmdb.getMovieInfo(chosenMovie.id, 'movie')
+  }
+
+  console.log(chosenMovieInfo)
   
   return {
     props: { list, chosenMovieInfo }
