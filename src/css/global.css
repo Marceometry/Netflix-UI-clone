@@ -5,6 +5,7 @@
   --gray: #999;
   --green: #46d369;
   --red: #e50914;
+  --red-dark: #be010a;
 }
 
 * {
@@ -24,6 +25,25 @@ button, a {
   cursor: pointer;
   border: none;
   text-decoration: none;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--red);
+  border-radius: 8px;
+  transition: .2s;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: var(--red-dark);
 }
 
 #nprogress {
