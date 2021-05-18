@@ -1,17 +1,25 @@
 import { useEffect, useState } from 'react'
 import { GetServerSideProps } from 'next'
+import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Tmdb from '../services/Tmdb'
 
+import Header from '../components/Header'
 import MainMovie from '../components/MainMovie'
 import List from '../components/List'
+import Footer from '../components/Footer'
 
 import css from '../css/home.module.scss'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
 
 export default function Home({ list, chosenMovieInfo }) {
   const [blackHeader, setBlackHeader] = useState(false)
+  const router = useRouter()
+
+  useEffect(() => {
+    if (!chosenMovieInfo) {
+      router.replace('/')
+    }
+  }, [])
 
   useEffect(() => {
     const scrollListener = () => {
@@ -50,22 +58,28 @@ export default function Home({ list, chosenMovieInfo }) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {  
   const list = await Tmdb.getHomeList()
 
-  const originals = list.filter(i => i.slug === 'originals')
-  const random = Math.floor(Math.random() * list[1].items.results.length - 1)
-  const chosenMovie = list[1].items.results[random]
-  let chosenMovieInfo = null
+  let randomListIndex = Math.floor(Math.random() * list.length - 1)
+  if (list[randomListIndex] === undefined || null) {
+    randomListIndex = 0
+  }
 
-  if (chosenMovie?.first_air_date) {
+  let randomItem = Math.floor(Math.random() * list[randomListIndex].items.results.length - 1)
+  let chosenMovie = list[randomListIndex].items.results[randomItem]
+
+  if (chosenMovie === undefined || null) {
+    chosenMovie = list[randomListIndex].items.results[0]
+  }
+  
+  let chosenMovieInfo = null
+  if (chosenMovie.first_air_date) {
     chosenMovieInfo = await Tmdb.getMovieInfo(chosenMovie.id, 'tv')
-  } else if (chosenMovie?.release_date) {
+  } else if (chosenMovie.release_date) {
     chosenMovieInfo = await Tmdb.getMovieInfo(chosenMovie.id, 'movie')
   }
 
-  console.log(chosenMovieInfo)
-  
   return {
     props: { list, chosenMovieInfo }
   }

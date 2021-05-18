@@ -1,5 +1,4 @@
 import { format, parseISO } from 'date-fns'
-import { useState } from 'react'
 import css from '../css/components/mainMovie.module.scss'
 
 export default function MainMovie({ item }) {
