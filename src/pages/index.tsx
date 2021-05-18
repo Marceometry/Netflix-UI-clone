@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { GetServerSideProps } from 'next'
+import Head from 'next/head'
 import Tmdb from '../services/Tmdb'
 
 import MainMovie from '../components/MainMovie'
@@ -28,6 +29,10 @@ export default function Home({ list, chosenMovieInfo }) {
   
   return (
     <div className={css.container}>
+      <Head>
+        <title>Netflix</title>
+      </Head>
+
       <Header bg={blackHeader} />
 
       <MainMovie item={chosenMovieInfo} />

@@ -3,6 +3,7 @@ import Nprogress from 'nprogress'
 import 'nprogress/nprogress.css'
 
 import '../css/global.css'
+import '../css/animations.css'
 
 Nprogress.configure({
   showSpinner: false,

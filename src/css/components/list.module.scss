@@ -13,7 +13,7 @@
     .left, .right {
         width: 2.5rem;
         height: 225px;
-        background: #00000060;
+        background: #00000090;
         transition: opacity, .2s;
         opacity: 0;
         
@@ -21,6 +21,7 @@
         align-items: center;
         justify-content: center;
 
+        overflow: hidden;
         cursor: pointer;
         position: absolute;
         z-index: 99;
@@ -42,6 +43,10 @@
         padding-left: 2rem;
         overflow-x: hidden;
 
+        .list {
+            transition: margin, .5s
+        }
+
         .item {
             width: 150px;
             cursor: pointer;
@@ -56,6 +61,25 @@
                     transform: scale(1);
                 }
             }
+        }
+    }
+}
+
+
+// mobile
+
+@media (max-width: 768px) {
+    .container {
+        .left, .right {
+            opacity: 1;
+        }
+
+        h2 {
+            margin-left: 1rem;
+        }
+
+        .listarea {
+            padding-left: 1rem;
         }
     }
 }
