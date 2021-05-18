@@ -28,10 +28,27 @@ button, a {
 
 #nprogress {
   position: relative;
-  z-index: 999999999;
+  z-index: 999;
 }
 
 #nprogress .bar {
   background: var(--red);
   height: 3px;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px var(--red), 0 0 5px var(--red);
+}
+
+/* responsive fonts */
+@media(max-width: 1080px) {
+  html {
+    font-size: 93.75%;
+  }
+}
+
+@media(max-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
 }
