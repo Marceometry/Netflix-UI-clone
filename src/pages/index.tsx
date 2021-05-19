@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { GetServerSideProps } from 'next'
-import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Tmdb from '../services/Tmdb'
 
+import { MovieProvider } from '../contexts/MovieContext'
 import Header from '../components/Header'
 import MainMovie from '../components/MainMovie'
 import List from '../components/List'
@@ -13,13 +13,6 @@ import css from '../css/home.module.scss'
 
 export default function Home({ list, chosenMovieInfo }) {
   const [blackHeader, setBlackHeader] = useState(false)
-  const router = useRouter()
-
-  useEffect(() => {
-    if (!chosenMovieInfo) {
-      router.replace('/')
-    }
-  }, [])
 
   useEffect(() => {
     const scrollListener = () => {
@@ -43,15 +36,17 @@ export default function Home({ list, chosenMovieInfo }) {
 
       <Header bg={blackHeader} />
 
-      <MainMovie item={chosenMovieInfo} />
+      <MovieProvider chosenMovieInfo={chosenMovieInfo}>
+        <MainMovie />
 
-      <section className={css.lists}>
-        {list.map((item, key) => {
-          return (
-            <List key={key} title={item.title} items={item.items} />
-          )
-        })}
-      </section>
+        <section className={css.lists}>
+          {list.map((item, key) => {
+            return (
+              <List key={key} title={item.title} items={item.items} />
+            )
+          })}
+        </section>
+      </MovieProvider>
 
       <Footer />
     </div>

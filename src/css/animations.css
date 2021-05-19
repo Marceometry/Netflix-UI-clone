@@ -22,7 +22,7 @@
 
 .loader {
     display: block;
-    position: fixed;
+    position: absolute;
     z-index: 1031;
     top: 50%;
     right: 50%;
