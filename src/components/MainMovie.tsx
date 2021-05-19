@@ -39,35 +39,39 @@ export default function MainMovie() {
     }
 
     return (
-        <section id="mainMovie" className={css.container} style={{
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            backgroundImage: `url(https://image.tmdb.org/t/p/original${item.backdrop_path})`
-        }}>
-            <div className={css.vertical}>
-                {!loading ? (
-                <div className={css.horizontal}>
-                    <h1 className={css.name}>{item.name ? item.name : item.title ? item.title : ''}</h1>
+        <>
+        {!loading ? (
+            <section id="mainMovie" className={css.container} style={{
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundImage: `url(https://image.tmdb.org/t/p/original${item.backdrop_path})`
+            }}>
+                <div className={css.vertical}>
+                    <div className={css.horizontal}>
+                        <h1 className={css.name}>{item.name ? item.name : item.title ? item.title : ''}</h1>
 
-                    <div className={css.info}>
-                        <span className={css.relevance}>{relevance} relevante</span>
-                        <span className={css.year}>{date}</span>
-                        <span className={css.seasons}>{seasonsOrDuration}</span>
+                        <div className={css.info}>
+                            <span className={css.relevance}>{relevance} relevante</span>
+                            <span className={css.year}>{date}</span>
+                            <span className={css.seasons}>{seasonsOrDuration}</span>
+                        </div>
+                        
+                        <p className={css.description}>{description}</p>
+
+                        <div className={css.buttons}>
+                            <button>&#9654; Assistir</button>
+                            <button>+ Minha Lista</button>
+                        </div>
+
+                        <span className={css.genres}><strong>Gêneros:</strong> {genres.join(', ')}</span>
                     </div>
-                    
-                    <p className={css.description}>{description}</p>
-
-                    <div className={css.buttons}>
-                        <button>&#9654; Assistir</button>
-                        <button>+ Minha Lista</button>
-                    </div>
-
-                    <span className={css.genres}><strong>Gêneros:</strong> {genres.join(', ')}</span>
                 </div>
-                ) : (
-                    <div className="loader"></div>
-                )}
-            </div>
-        </section>
+            </section>
+        ) : (
+            <section id="mainMovie" className={css.loaderContainer}>
+                <div className="loader"></div>
+            </section>
+        )}
+        </>
     )
 }

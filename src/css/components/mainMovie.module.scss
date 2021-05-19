@@ -1,5 +1,12 @@
+.loaderContainer {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
 .container {
     height: 100vh;
+    transition: .2s;
 
     .vertical {
         width: inherit;
@@ -16,7 +23,6 @@
         display: flex;
         justify-content: center;
         flex-direction: column;
-        position: relative;
     }
 
     .name {
