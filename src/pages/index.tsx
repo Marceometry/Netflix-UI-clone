@@ -73,11 +73,10 @@ export const getServerSideProps: GetServerSideProps = async () => {
     chosenMovie = list[randomListIndex].items.results[0]
   }
   
-  let chosenMovieInfo = null
   if (chosenMovie.first_air_date) {
-    chosenMovieInfo = await Tmdb.getMovieInfo(chosenMovie.id, 'tv')
+    var chosenMovieInfo = await Tmdb.getMovieInfo(chosenMovie.id, 'tv')
   } else if (chosenMovie.release_date) {
-    chosenMovieInfo = await Tmdb.getMovieInfo(chosenMovie.id, 'movie')
+    var chosenMovieInfo = await Tmdb.getMovieInfo(chosenMovie.id, 'movie')
   }
 
   return {
