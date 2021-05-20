@@ -1,9 +1,10 @@
 import axios from "axios"
 
+const API_KEY = '519a3aa754e488d561d7b4726b51b25e'
 const API_BASE = 'https://api.themoviedb.org/3'
 
 const basicFetch = async (endpoint: string) => {
-    const { data } = await axios(`${API_BASE}${endpoint}language=pt-BR&api_key=${process.env.TMDB_API_KEY}`)
+    const { data } = await axios(`${API_BASE}${endpoint}language=pt-BR&api_key=${API_KEY}`)
     return data
 }
 
@@ -53,21 +54,11 @@ export default {
         ]
     },
 
-    getMovieInfo: async (movieId, type) => {
+    getMovieInfo: async (movieId: number, type: string) => {
         let info = {}
 
         if (movieId) {
-            switch (type) {
-                case 'movie':
-                    info = await basicFetch(`/movie/${movieId}?`)
-                    break
-                case 'tv':
-                    info = await basicFetch(`/tv/${movieId}?`)
-                    break
-                default:
-                    info = null
-                    break
-            }
+            info = await basicFetch(`/${type}/${movieId}?`)
         }
 
         return info
