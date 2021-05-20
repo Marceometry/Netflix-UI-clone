@@ -1,10 +1,9 @@
 import axios from "axios"
 
-const API_KEY = '519a3aa754e488d561d7b4726b51b25e'
 const API_BASE = 'https://api.themoviedb.org/3'
 
-const basicFetch = async (endpoint) => {
-    const { data } = await axios(`${API_BASE}${endpoint}language=pt-BR&api_key=${API_KEY}`)
+const basicFetch = async (endpoint: string) => {
+    const { data } = await axios(`${API_BASE}${endpoint}language=pt-BR&api_key=${process.env.TMDB_API_KEY}`)
     return data
 }
 
