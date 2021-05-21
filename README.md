@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="Netflix" src="public/logo-netflix.png">
+  <img alt="Netflix" src="public/logo-netflix.png" width="30%">
 </h1>
 
 <p align="center">
