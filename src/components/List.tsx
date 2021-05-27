@@ -56,7 +56,7 @@ export default function List({ title, items }) {
                         {items.results.map((item, key) => (
                             <div className={css.item} key={key} >
                                 <Link to='mainMovie' smooth={true} duration={500} >
-                                <img onClick={() => selectMovie(item)} src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.name} />
+                                <img onClick={() => selectMovie(item)} src={`https://image.tmdb.org/t/p/w300${item.poster_path}`} alt={item.name ? item.name : item.title ? item.title : ''} />
                                 </Link>
                             </div>
                         ))}
