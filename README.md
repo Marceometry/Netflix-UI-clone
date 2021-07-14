@@ -27,7 +27,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 <h4> Acesse em: https://netflix-ui-clone-marcelino.vercel.app </h4>
 
-O projeto consiste em um clone (sem o intúito de ser 100% fiel) da interface da página principal do site da [Netflix](https://netflix.com), utilizando os dados de filmes e séries gerados pela API do [TheMovieDB](https://www.themoviedb.org)
+O projeto consiste em um clone da interface da página principal do site da [Netflix](https://netflix.com), utilizando os dados de filmes e séries gerados pela API do [TheMovieDB](https://www.themoviedb.org)
 
 ## 🚀 Como executar
 
